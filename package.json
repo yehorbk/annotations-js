@@ -1,0 +1,37 @@
+{
+  "name": "annotations",
+  "version": "1.0.0",
+  "description": "Annotations implementation in JavaScript",
+  "license": "MIT",
+  "author": "Yehor Bublyk <yehor.bk@gmail.com>",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm run-script eslint && npm run-script prettier:check && mocha test/*",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yehorbk/annotations-js.git"
+  },
+  "homepage": "https://github.com/yehorbk/annotations-js#readme",
+  "bugs": {
+    "url": "https://github.com/yehorbk/annotations-js/issues"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "mocha": "^8.1.3",
+    "prettier": "^2.1.2"
+  }
+}
