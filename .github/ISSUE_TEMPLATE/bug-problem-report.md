@@ -4,7 +4,6 @@ about: Describe your problem
 title: Found a bug
 labels: bug, help wanted, invalid, question
 assignees: yehorbk
-
 ---
 
 **Describe the bug**

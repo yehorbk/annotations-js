@@ -4,7 +4,6 @@ about: Suggest an idea for this project
 title: The new feature that...
 labels: documentation, enhancement
 assignees: yehorbk
-
 ---
 
 **Is your feature request related to a problem? Please describe.**
