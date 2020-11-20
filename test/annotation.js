@@ -6,11 +6,14 @@ const assert = require('assert');
 
 const Annotation = require('../lib/annotation');
 
+Annotation.bind(CustomAnnotation);
+function CustomAnnotation() {}
+
 mocha.describe('Annotation test', () => {
   mocha.it('Annotate with function declaration', () => {
-    Annotation.annotate(foo, { fooParam: 'fooParam' });
+    CustomAnnotation.annotate(foo, { fooParam: 'fooParam' });
     function foo() {}
-    const actual = Annotation.getAnnotated();
+    const actual = CustomAnnotation.getAnnotated();
     const expected = {
       foo: {
         objectInterface: { value: foo },
@@ -21,9 +24,11 @@ mocha.describe('Annotation test', () => {
   });
 
   mocha.it('Annotate with function expression', () => {
-    const fooInterface = Annotation.annotate('foo', { fooParam: 'fooParam' });
+    const fooInterface = CustomAnnotation.annotate('foo', {
+      fooParam: 'fooParam',
+    });
     const foo = (fooInterface.value = function () {});
-    const actual = Annotation.getAnnotated();
+    const actual = CustomAnnotation.getAnnotated();
     const expected = {
       foo: {
         objectInterface: { value: foo },
@@ -34,9 +39,11 @@ mocha.describe('Annotation test', () => {
   });
 
   mocha.it('Annotate with object', () => {
-    const fooInterface = Annotation.annotate('foo', { fooParam: 'fooParam' });
+    const fooInterface = CustomAnnotation.annotate('foo', {
+      fooParam: 'fooParam',
+    });
     const foo = (fooInterface.value = { objectParam: 'objectParam' });
-    const actual = Annotation.getAnnotated();
+    const actual = CustomAnnotation.getAnnotated();
     const expected = {
       foo: {
         objectInterface: { value: foo },
@@ -47,9 +54,11 @@ mocha.describe('Annotation test', () => {
   });
 
   mocha.it('Annotate with variable', () => {
-    const fooInterface = Annotation.annotate('foo', { fooParam: 'fooParam' });
+    const fooInterface = CustomAnnotation.annotate('foo', {
+      fooParam: 'fooParam',
+    });
     const foo = (fooInterface.value = 'fooVariable');
-    const actual = Annotation.getAnnotated();
+    const actual = CustomAnnotation.getAnnotated();
     const expected = {
       foo: {
         objectInterface: { value: foo },
@@ -60,11 +69,11 @@ mocha.describe('Annotation test', () => {
   });
 
   mocha.it('Annotate with two different functions', () => {
-    Annotation.annotate(foo, { fooParam: 'fooParam' });
+    CustomAnnotation.annotate(foo, { fooParam: 'fooParam' });
     function foo() {}
-    Annotation.annotate(bar, { barParam: 'barParam' });
+    CustomAnnotation.annotate(bar, { barParam: 'barParam' });
     function bar() {}
-    const actual = Annotation.getAnnotated();
+    const actual = CustomAnnotation.getAnnotated();
     const expected = {
       foo: {
         objectInterface: { value: foo },
