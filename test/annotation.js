@@ -1,6 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable no-use-before-define */
-
 const mocha = require('mocha');
 const assert = require('assert');
 
@@ -27,7 +24,7 @@ mocha.describe('Annotation test', () => {
     const fooInterface = CustomAnnotation.annotate('foo', {
       fooParam: 'fooParam',
     });
-    const foo = (fooInterface.value = function () {});
+    const foo = (fooInterface.value = () => {});
     const actual = CustomAnnotation.getAnnotated();
     const expected = {
       foo: {
