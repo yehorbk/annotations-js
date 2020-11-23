@@ -1,12 +1,26 @@
 const mocha = require('mocha');
 const assert = require('assert');
 
+const AnnotationsExceptions = require('../lib/annotations-exceptions');
 const Annotation = require('../lib/annotation');
 
 Annotation.bind(CustomAnnotation);
 function CustomAnnotation() {}
 
 mocha.describe('Annotation test', () => {
+  mocha.it('Bind invalid input', () => {
+    assert.throws(() => {
+      Annotation.bind('foo');
+    }, new Error(AnnotationsExceptions.INVALID_BINDING));
+  });
+
+  mocha.it('Bind invalid params', () => {
+    assert.throws(() => {
+      Annotation.bind(FooAnnotation, 'foo');
+      function FooAnnotation() {}
+    }, new Error(AnnotationsExceptions.INVALID_PARAMS));
+  });
+
   mocha.it('Annotate with function declaration', () => {
     CustomAnnotation.annotate(foo, { fooParam: 'fooParam' });
     function foo() {}
@@ -82,5 +96,17 @@ mocha.describe('Annotation test', () => {
       },
     };
     assert.deepStrictEqual(actual, expected);
+  });
+
+  mocha.it('Annotate with invalid input', () => {
+    assert.throws(() => {
+      CustomAnnotation.annotate({}, { fooParam: 'fooParam' });
+    }, new Error(AnnotationsExceptions.INVALID_INPUT));
+  });
+
+  mocha.it('Annotate with invalid params', () => {
+    assert.throws(() => {
+      CustomAnnotation.annotate('foo', 'fooParam');
+    }, new Error(AnnotationsExceptions.INVALID_PARAMS));
   });
 });
