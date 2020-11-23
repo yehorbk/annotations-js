@@ -1,10 +1,10 @@
 {
-  "name": "annotations",
+  "name": "annotations-js",
   "version": "1.0.0",
-  "description": "Annotations implementation in JavaScript",
+  "description": "Library that provides annotations functionality in vanilla JavaScript",
   "license": "MIT",
   "author": "Yehor Bublyk <yehor.bk@gmail.com>",
-  "main": "index.js",
+  "main": "annotations.js",
   "directories": {
     "lib": "lib",
     "test": "tests"
@@ -23,7 +23,13 @@
   "bugs": {
     "url": "https://github.com/yehorbk/annotations-js/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "javascript-vanilla",
+    "javascript-library",
+    "annotations",
+    "annotation"
+  ],
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
