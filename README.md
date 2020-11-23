@@ -13,6 +13,7 @@ $ npm install annotations-js
 # How to Use
 
 ## Creating custom annotation
+
 First of all, you need to get the main `Annotation` function by connecting the library.
 To create your own custom annotation, you need to call the `bind` function from `Annotation`, passing your function (annotation) to it.
 This function will set generic annotation prototype to your annotation and then you will be able to use your
@@ -28,6 +29,7 @@ function CustomAnnotation() {}
 To get all binded annotations in your application you can use method `getAnnotations` from `Annotation`.
 
 ## Working with annotation
+
 With your custom annotation you can annotate functions, objects and variables. All annotated items will
 be stored in annotation's storage that can be returned from `getAnnotated` method. Also you able to
 pass params with annotated item. To annotate a function declaration - use next syntax:
@@ -41,8 +43,8 @@ If you want to annotate functional expressions, objects, variables, etc. - there
 special syntax for it. The `annotate` method returns interface for your annotated value:
 
 ```javascript
- const fooInterface = CustomAnnotation.annotate('fooObject');
- const fooObject = fooInterface.value = { objectParam: 'objectParam' };
+const fooInterface = CustomAnnotation.annotate('fooObject');
+const fooObject = (fooInterface.value = { objectParam: 'objectParam' });
 ```
 
 The string literal `'fooObject'` in this example - it's a key for annotated item.
