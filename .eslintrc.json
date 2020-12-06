@@ -21,6 +21,7 @@
     "arrow-parens": "off",
     "implicit-arrow-linebreak": "off",
     "no-multi-assign": "off",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "func-names": "off"
   }
 }
