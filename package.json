@@ -1,6 +1,6 @@
 {
   "name": "annotations-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library that provides annotations functionality in vanilla JavaScript",
   "license": "MIT",
   "author": "Yehor Bublyk <yehor.bk@gmail.com>",
